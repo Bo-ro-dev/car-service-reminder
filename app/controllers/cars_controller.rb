@@ -28,6 +28,7 @@ class CarsController < AuthenticatedController
     if @car.save
       redirect_to @car, notice: 'Car was successfully created.'
       ServiceReminderMailer.welcome_email(@car).deliver
+      RemindMessenger.new.send(@car.phone_number, "hello" )
     else
       render :new
     end
