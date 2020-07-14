@@ -52,3 +52,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'telesign'
 
 gem 'smsapi-client', '~> 1.0'
+
+gem 'rubocop', require: false

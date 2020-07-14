@@ -9,6 +9,7 @@
 #  last_serviced_at  :date
 #  name              :string
 #  plate_number      :string
+#  reminded          :boolean
 #  telephone_number  :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null

@@ -6,6 +6,7 @@ class RemindMessenger
   end
   def send(phone_number, message)
     sms = client.send_single(phone_number, message, test: '1')
+    sms.error_code
 
   end
 
