@@ -38,7 +38,13 @@
             <td><%= car.plate_number %></td>
             <td><%= car.telephone_number %></td>
             <td><%= car.last_serviced_at %></td>
-            <td><%= car.reminded %></td>
+            <td><%=
+              case car.reminded
+                when nil, false
+                  puts "Nie powiadomiono"
+                else
+                  puts "Powiadomiono"
+              end%></td>
 
 
             <td><%= link_to 'Wyświetl', car %></td>
