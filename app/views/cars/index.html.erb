@@ -2,6 +2,7 @@
 
 
 
+
 <%= form_tag cars_path, method: 'get' do %>
      <p>
         <%= text_field_tag :search, params[:search]%>
@@ -30,7 +31,16 @@
 
       <tbody>
         <% @cars.each do |car| %>
-          <tr>
+
+
+            <% if car.last_serviced_at.to_time < Date.current.to_time - 11.months && car.reminded == true %>
+              <tr style="background-color:green;">
+            <%elsif car.last_serviced_at.to_time < Date.current.to_time - 11.months && car.reminded != true %>
+              <tr style="background-color:yellow;">
+            <%else%>
+              <tr>
+            <%end%>
+
             <td><%= link_to car.client_name, cars_path(search: car.client_name) %>
            </td>
             <td><%= car.email %></td>
@@ -46,11 +56,12 @@
                   puts "Powiadomiono"
               end%></td>
 
-
+            <td><%= link_to 'Powiadom', reminder_path(car.id), method: :patch %> </td>
             <td><%= link_to 'Wyświetl', car %></td>
-            <td><%= link_to 'Edytuj', edit_car_path(car) %></td>
+            <td><%= link_to 'Edytuj',  edit_car_path(car) %></td>
             <td><%= link_to 'Usuń', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
+
         <% end %>
       </tbody>
     </table>

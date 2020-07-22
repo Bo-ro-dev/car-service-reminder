@@ -3,8 +3,11 @@ class CarsController < AuthenticatedController
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all.search(params[:search])
+    @cars = Car.all.search(params[:search]).order('last_serviced_at ASC')
+
   end
+
+
 
   # GET /cars/1
   # GET /cars/1.json
@@ -19,6 +22,7 @@ class CarsController < AuthenticatedController
   # GET /cars/1/edit
   def edit
   end
+
 
   # POST /cars
   # POST /cars.json
