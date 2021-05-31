@@ -46,6 +46,10 @@
     <%= form.date_select :last_serviced_at %>
   </div>
 
+  <div class="field">
+    <%= form.hidden_field :account, value: $current_user %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

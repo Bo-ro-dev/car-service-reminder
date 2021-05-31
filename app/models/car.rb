@@ -3,6 +3,7 @@
 # Table name: cars
 #
 #  id                :bigint           not null, primary key
+#  account           :string
 #  client_first_name :string
 #  client_last_name  :string
 #  email             :string
@@ -16,6 +17,7 @@
 #
 # Indexes
 #
+#  index_cars_on_account           (account)
 #  index_cars_on_last_serviced_at  (last_serviced_at)
 #  index_cars_on_plate_number      (plate_number)
 #
